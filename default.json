@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", ":timezone(Asia/Tokyo)", ":automergeMinor", "schedule:nonOfficeHours"],
+  "npmrc": "@avita-co-jp:registry=https://npm.pkg.github.com/",
+  "rebaseWhen": "conflicted",
+  "patch": {
+    "additionalBranchPrefix": "patch/"
+  },
+  "minor": {
+    "additionalBranchPrefix": "minor/"
+  },
+  "major": {
+    "draftPR": true,
+    "rebaseWhen": "never",
+    "additionalBranchPrefix": "major/"
+  }
+}
