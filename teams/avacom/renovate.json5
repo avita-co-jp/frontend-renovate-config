@@ -23,6 +23,7 @@
         "team:avita_avacom_frontend",
         "team:fulltime_avacom_frontend",
       ],
+      additionalBranchPrefix: "no-chromatic/",
     },
 
     // ------------------------------------------------------------
