@@ -8,7 +8,7 @@ avita frontend renovate config
 {
   "extends": [
     "github>avita-co-jp/frontend-renovate-config",
-    "github>avita-co-jp/frontend-renovate-config:teams/avacom"
+    "github>avita-co-jp/frontend-renovate-config:teams/avacom/renovate.json5"
   ]
 }
 ```
