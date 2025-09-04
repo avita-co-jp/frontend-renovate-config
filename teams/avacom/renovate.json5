@@ -1,0 +1,94 @@
+{
+  prConcurrentLimit: 5, // 同時オープンPR数を制限
+  prHourlyLimit: 5, // 1時間あたりの新規PR作成を制限
+  stabilityDays: 2, // 2日寝かせてからPR（即時リリースの不具合を吸収）
+  separateMinorPatch: true, // patch と minor は必ず分離
+  separateMultipleMajor: true, // major が複数同時に来ても一括にしない
+  extends: [
+    "group:monorepos", // 同一モノレポの依存はまとめる（個別リリースが前提のものは別途除外）
+  ],
+
+  ignorePaths: [".node-version"],
+
+  packageRules: [
+    // -----------------------------
+    // patch は広くまとめて自動マージ
+    // -----------------------------
+    {
+      matchUpdateTypes: ["patch"],
+      groupName: "patch-all",
+      automerge: true,
+      draftPR: false,
+      reviewers: [
+        "team:avita_avacom_frontend",
+        "team:fulltime_avacom_frontend",
+      ],
+    },
+
+    // ------------------------------------------------------------
+    // minor：UI 影響“少”のスタックは週末にバッチでまとめる
+    // ------------------------------------------------------------
+    {
+      matchUpdateTypes: ["minor"],
+      excludePackageNames: [
+        // 下の「UI影響“大”」グループで扱うものは除外
+        "react",
+        "react-dom",
+        "next",
+        "storybook",
+        "@storybook/*",
+        "chromatic",
+        "@chromaui/*",
+        "@radix-ui/*",
+        "lucide-react",
+        "shadcn-ui",
+      ],
+      groupName: "minor-batch-weekend",
+      schedule: ["every weekend"], // 週末にバッチ
+      automerge: true,
+      reviewers: [
+        "team:avita_avacom_frontend",
+        "team:fulltime_avacom_frontend",
+      ],
+      additionalBranchPrefix: "no-chromatic/",
+      draftPR: false,
+    },
+    // ------------------------------------------------------------
+    // minor：UI 影響“大”のライブラリは個別でPRを出す
+    // ------------------------------------------------------------
+    {
+      matchUpdateTypes: ["minor"],
+      matchPackageNames: [
+        "react",
+        "react-dom",
+        "next",
+        "storybook",
+        "@storybook/*",
+        "chromatic",
+        "@chromaui/*",
+        "@radix-ui/*",
+        "lucide-react",
+        "shadcn-ui",
+      ],
+      automerge: true,
+      reviewers: [
+        "team:avita_avacom_frontend",
+        "team:fulltime_avacom_frontend",
+      ],
+    },
+
+    // ------------------------------------------------------------
+    // major は自動マージしない
+    // ------------------------------------------------------------
+    {
+      matchUpdateTypes: ["major"],
+      automerge: false,
+      autoApprove: true,
+      draftPR: false,
+      reviewers: [
+        "team:avita_avacom_frontend",
+        "team:fulltime_avacom_frontend",
+      ],
+    },
+  ],
+}
