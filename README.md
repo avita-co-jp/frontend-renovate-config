@@ -1,4 +1,5 @@
 # frontend-renovate-config
+
 avita frontend renovate config
 
 ## Setup
@@ -7,6 +8,7 @@ avita frontend renovate config
 {
   "extends": [
     "github>avita-co-jp/frontend-renovate-config"
+    "github>avita-co-jp/frontend-renovate-config:teams/avacom"
   ]
 }
 ```
