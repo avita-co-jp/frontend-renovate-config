@@ -4,6 +4,7 @@
   stabilityDays: 2, // 2日寝かせてからPR（即時リリースの不具合を吸収）
   separateMinorPatch: true, // patch と minor は必ず分離
   separateMultipleMajor: true, // major が複数同時に来ても一括にしない
+  schedule: ["every weekend"], // 週末にバッチ
   extends: [
     "group:monorepos", // 同一モノレポの依存はまとめる（個別リリースが前提のものは別途除外）
   ],
