@@ -13,6 +13,14 @@
 
   packageRules: [
     // -----------------------------
+    // devDependencies は全て Chromatic をスキップ
+    // -----------------------------
+    {
+      matchDepTypes: ["devDependencies"],
+      additionalBranchPrefix: "no-chromatic/",
+    },
+
+    // -----------------------------
     // patch は広くまとめて自動マージ
     // -----------------------------
     {
