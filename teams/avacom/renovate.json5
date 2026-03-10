@@ -36,12 +36,12 @@
     },
 
     // ------------------------------------------------------------
-    // minor：UI 影響“少”のスタックは週末にバッチでまとめる
+    // minor：UI 影響"少"のスタックは週末にバッチでまとめる
     // ------------------------------------------------------------
     {
       matchUpdateTypes: ["minor"],
       excludePackageNames: [
-        // 下の「UI影響“大”」グループで扱うものは除外
+        // 下の「UI影響"大"」グループで扱うものは除外
         "react",
         "react-dom",
         "next",
@@ -52,6 +52,7 @@
         "@radix-ui/*",
         "lucide-react",
         "shadcn-ui",
+        "storybook-react-i18next",
       ],
       groupName: "minor-batch-weekend",
       schedule: ["every weekend"], // 週末にバッチ
@@ -64,7 +65,7 @@
       draftPR: false,
     },
     // ------------------------------------------------------------
-    // minor：UI 影響“大”のライブラリは個別でPRを出す
+    // minor：UI 影響"大"のライブラリは個別でPRを出す
     // ------------------------------------------------------------
     {
       matchUpdateTypes: ["minor"],
@@ -79,6 +80,7 @@
         "@radix-ui/*",
         "lucide-react",
         "shadcn-ui",
+        "storybook-react-i18next",
       ],
       automerge: true,
       reviewers: [
