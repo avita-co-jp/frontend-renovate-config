@@ -9,7 +9,8 @@
     "group:monorepos", // 同一モノレポの依存はまとめる（個別リリースが前提のものは別途除外）
   ],
 
-  ignorePaths: [".node-version","avita-co-jp/sync-labels-with-repo"],
+  ignorePaths: [".node-version"],
+  ignoreDeps: ["avita-co-jp/sync-labels-with-repo"],
 
   packageRules: [
     // -----------------------------
