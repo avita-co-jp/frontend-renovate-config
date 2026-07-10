@@ -11,9 +11,9 @@
   },
   "packageRules": [
     {
-      "description": "Automerge GitHub Actions digest pinning",
+      "description": "Automerge GitHub Actions digest updates",
       "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["pinDigest"],
+      "matchUpdateTypes": ["digest", "pinDigest"],
       "automerge": true,
       "automergeType": "pr"
     }
