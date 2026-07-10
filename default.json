@@ -9,6 +9,15 @@
   "minor": {
     "additionalBranchPrefix": "minor/"
   },
+  "packageRules": [
+    {
+      "description": "Automerge GitHub Actions digest pinning",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["pinDigest"],
+      "automerge": true,
+      "automergeType": "pr"
+    }
+  ],
   "major": {
     "draftPR": true,
     "rebaseWhen": "never",
