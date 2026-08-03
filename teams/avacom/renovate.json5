@@ -37,7 +37,7 @@
     },
 
     // -----------------------------
-    // digest 更新はまとめて自動マージ
+    // digest / pinDigest 更新はまとめて自動マージ
     // -----------------------------
     {
       matchUpdateTypes: ["digest", "pinDigest"],
