@@ -36,6 +36,21 @@
       additionalBranchPrefix: "no-chromatic/",
     },
 
+    // -----------------------------
+    // digest / pinDigest 更新はまとめて自動マージ
+    // -----------------------------
+    {
+      matchUpdateTypes: ["digest", "pinDigest"],
+      groupName: "digest-all",
+      automerge: true,
+      draftPR: false,
+      reviewers: [
+        "team:avita_avacom_frontend",
+        "team:fulltime_avacom_frontend",
+      ],
+      additionalBranchPrefix: "no-chromatic/",
+    },
+
     // ------------------------------------------------------------
     // minor：UI 影響"少"のスタックは週末にバッチでまとめる
     // ------------------------------------------------------------
