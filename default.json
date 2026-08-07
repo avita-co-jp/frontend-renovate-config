@@ -11,6 +11,11 @@
   },
   "packageRules": [
     {
+      "description": "Wait 14 days before updating npm packages",
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "14 days"
+    },
+    {
       "description": "Automerge GitHub Actions digest updates",
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["digest", "pinDigest"],
