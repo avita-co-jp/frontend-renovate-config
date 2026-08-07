@@ -1,7 +1,6 @@
 {
   prConcurrentLimit: 5, // 同時オープンPR数を制限
   prHourlyLimit: 5, // 1時間あたりの新規PR作成を制限
-  stabilityDays: 2, // 2日寝かせてからPR（即時リリースの不具合を吸収）
   separateMinorPatch: true, // patch と minor は必ず分離
   separateMultipleMajor: true, // major が複数同時に来ても一括にしない
   schedule: ["every weekend"], // 週末にバッチ
