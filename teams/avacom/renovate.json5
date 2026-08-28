@@ -9,9 +9,20 @@
   ],
 
   ignorePaths: [".node-version"],
+  // avacom 共通で当面追従しない依存更新を止める。
+  // - @avita-co-jp/design-tokens: v3 は影響範囲が大きく、モノレポ化後に移行計画を立てる
+  // - jest / @testing-library/react: テスト基盤の更新影響が複数repoに出るため、計画的に対応する
+  // - graphql-codegen-typescript-mock-data: v5.1.2 以降は Node.js >=24 が必要
+  // - lint-staged / node / @types/node: Node.js 実行環境に依存するため、各repoの環境更新と合わせて対応する
   ignoreDeps: [
     "avita-co-jp/sync-labels-with-repo",
     "@avita-co-jp/design-tokens",
+    "jest",
+    "@testing-library/react",
+    "graphql-codegen-typescript-mock-data",
+    "lint-staged",
+    "node",
+    "@types/node",
   ],
 
   packageRules: [
@@ -109,6 +120,10 @@
 
     // ------------------------------------------------------------
     // 当面追従しない major アップデートはPR作成を止める
+    // - next: v16 は影響範囲が大きく、モノレポ化後に移行計画を立てる
+    // - @apollo/client: v4 は影響範囲が大きく、モノレポ化後に移行計画を立てる
+    // - typescript: v7 は影響範囲が大きく、モノレポ化後に移行計画を立てる
+    // ref: https://github.com/avita-co-jp/avacom-issues/issues/3099
     // ------------------------------------------------------------
     {
       matchUpdateTypes: ["major"],
