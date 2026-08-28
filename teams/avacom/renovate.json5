@@ -9,7 +9,10 @@
   ],
 
   ignorePaths: [".node-version"],
-  ignoreDeps: ["avita-co-jp/sync-labels-with-repo"],
+  ignoreDeps: [
+    "avita-co-jp/sync-labels-with-repo",
+    "@avita-co-jp/design-tokens",
+  ],
 
   packageRules: [
     // -----------------------------
@@ -102,6 +105,15 @@
         "team:avita_avacom_frontend",
         "team:fulltime_avacom_frontend",
       ],
+    },
+
+    // ------------------------------------------------------------
+    // 当面追従しない major アップデートはPR作成を止める
+    // ------------------------------------------------------------
+    {
+      matchUpdateTypes: ["major"],
+      matchPackageNames: ["next", "@apollo/client", "typescript"],
+      enabled: false,
     },
 
     // ------------------------------------------------------------
