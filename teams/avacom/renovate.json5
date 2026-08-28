@@ -14,6 +14,11 @@
   // - jest / @testing-library/react: テスト基盤の更新影響が複数repoに出るため、計画的に対応する
   // - graphql-codegen-typescript-mock-data: v5.1.2 以降は Node.js >=24 が必要
   // - lint-staged / node / @types/node: Node.js 実行環境に依存するため、各repoの環境更新と合わせて対応する
+  // - jest-environment-jsdom: 各repoの jsdom pnpm patch とバージョン連動しており、
+  //   意図しない jsdom バージョンに更新されるとパッチが適用できなくなる可能性がある
+  // - @storybook/nextjs-vite: 各repoの .storybook/main.ts が内部プラグイン名
+  //   （vite-plugin-storybook-nextjs-dynamic 等）に依存した workaround をしており、
+  //   アップデートでプラグイン名が変わると壊れる可能性がある
   ignoreDeps: [
     "avita-co-jp/sync-labels-with-repo",
     "@avita-co-jp/design-tokens",
@@ -21,6 +26,8 @@
     "@testing-library/react",
     "graphql-codegen-typescript-mock-data",
     "lint-staged",
+    "jest-environment-jsdom",
+    "@storybook/nextjs-vite",
     "node",
     "@types/node",
   ],
