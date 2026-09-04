@@ -16,11 +16,16 @@
       "minimumReleaseAge": "14 days"
     },
     {
-      "description": "Automerge GitHub Actions digest updates",
+      "description": "GitHub Actionsの更新を自動マージしない",
       "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["digest", "pinDigest"],
-      "automerge": true,
-      "automergeType": "pr"
+      "automerge": false
+    },
+    {
+      "description": "developを参照するavita-co-jpのGitHub ActionsのSHA更新を無効化",
+      "enabled": false,
+      "matchCurrentValue": "develop",
+      "matchManagers": ["github-actions"],
+      "matchPackageNames": ["/^avita-co-jp\\//"]
     }
   ],
   "major": {
