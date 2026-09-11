@@ -16,6 +16,12 @@
       "minimumReleaseAge": "14 days"
     },
     {
+      "description": "Do not wait for internal packages (transitive dependencies are still subject to the 14-day rule)",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["@avita-co-jp/*"],
+      "minimumReleaseAge": null
+    },
+    {
       "description": "GitHub Actionsの更新を自動マージしない",
       "matchManagers": ["github-actions"],
       "automerge": false
