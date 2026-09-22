@@ -38,5 +38,6 @@
     "draftPR": true,
     "rebaseWhen": "never",
     "additionalBranchPrefix": "major/"
-  }
+  },
+  "ignorePaths": [".node_version"]
 }
