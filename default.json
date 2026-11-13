@@ -16,6 +16,11 @@
       "minimumReleaseAge": "14 days"
     },
     {
+      "description": "Wait 14 days before updating GitHub Actions",
+      "matchManagers": ["github-actions"],
+      "minimumReleaseAge": "14 days"
+    },
+    {
       "description": "Do not wait for internal packages (transitive dependencies are still subject to the 14-day rule)",
       "matchDatasources": ["npm"],
       "matchPackageNames": ["@avita-co-jp/*"],
